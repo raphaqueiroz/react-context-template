@@ -1,14 +1,14 @@
+import { GlobalContext } from "./GlobalContext"
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BASE_URL } from "../constants/url";
-import HomePage from "../pages/HomePage/HomePage";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import PokedexPage from "../pages/PokedexPage/PokedexPage";
 
-function Router() {
-  const [pokelist, setPokelist] = useState([]);
-  const [pokedex, setPokedex] = useState([]);
+export const GlobalState = (props) => {
+
+    // props.children = todos serão filhos dele; E todos tem acesso à informação!
+
+    const [pokelist, setPokelist] = useState([]);
+    const [pokedex, setPokedex] = useState([]);
 
   useEffect(() => {
     fetchPokelist();
@@ -43,29 +43,17 @@ function Router() {
     setPokedex(newPokedex);
   };
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage
-              
-            />
-          }
-        />
-        <Route
-          path="/pokedex"
-          element={
-            <PokedexPage
-              
-            />
-          }
-        />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+  // O valor que todos os filhos do context vão receber é o "value= {data}"
+  const data = {
+    pokelist, 
+    addToPokedex, 
+    removeFromPokedex, 
+    pokedex 
+  }
 
-export default Router;
+    return (
+        <GlobalContext.Provider value={data}>{/* irá prover todas as informações para os filhos*/ }
+        {props.children}
+        </GlobalContext.Provider>
+    )
+}
