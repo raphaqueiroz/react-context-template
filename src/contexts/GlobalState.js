@@ -5,55 +5,65 @@ import { BASE_URL } from "../constants/url";
 
 export const GlobalState = (props) => {
 
-    // props.children = todos serão filhos dele; E todos tem acesso à informação!
-
-    const [pokelist, setPokelist] = useState([]);
+    const [pokeList, setPokeList] = useState([]);
     const [pokedex, setPokedex] = useState([]);
+    const [pokemonApi, setPokemonApi] = useState({})
+    
 
-  useEffect(() => {
-    fetchPokelist();
-  }, []);
+    useEffect(() => {
+        fetchPokeList()
+    }, [])
 
-  const fetchPokelist = async () => {
-    try {
-      const response = await axios.get(BASE_URL);
-      setPokelist(response.data.results);
-    } catch (error) {
-      console.log("Erro ao buscar lista de pokemons");
-      console.log(error.response);
+    const fetchPokeList = async () => {
+        try{
+            const response = await axios.get(BASE_URL);
+            console.log(response.data.results)
+            setPokeList(response.data.results)
+        } catch (error) {
+            console.log("Erro ao buscar lista de pokemons");
+            console.log(error.response);
+        }
     }
-  };
 
-  const addToPokedex = (pokemonToAdd) => {
-    const isAlreadyOnPokedex = pokedex.find(
-      (pokemonInPokedex) => pokemonInPokedex.name === pokemonToAdd.name
-    );
 
-    if (!isAlreadyOnPokedex) {
-      const newPokedex = [...pokedex, pokemonToAdd];
-      setPokedex(newPokedex);
+    const addToPokedex = (pokemonToAdd) => {
+        const isAlreadyOnPokedex = pokedex.find(
+            (pokemonInPokedex) => pokemonInPokedex.name === pokemonToAdd.name
+        );
+
+        if (!isAlreadyOnPokedex) {
+
+            const newPokedex = [...pokedex, pokemonToAdd];
+            setPokedex(newPokedex);
+        }
     }
-  };
 
-  const removeFromPokedex = (pokemonToRemove) => {
-    const newPokedex = pokedex.filter(
-      (pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name
-    );
+    const removeFromPokedex = (pokemonToRemove) => {
+        const newPokedex = pokedex.filter(
+          (pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name
+        );
+    
+        setPokedex(newPokedex);
+        console.log(pokedex)
+      };
 
-    setPokedex(newPokedex);
-  };
 
-  // O valor que todos os filhos do context vão receber é o "value= {data}"
-  const data = {
-    pokelist, 
-    addToPokedex, 
-    removeFromPokedex, 
-    pokedex 
-  }
+    const data = {
+        pokeList, 
+        addToPokedex, 
+        removeFromPokedex, 
+        pokedex, 
+        pokemonApi, 
+        setPokemonApi
+    }
 
-    return (
-        <GlobalContext.Provider value={data}>{/* irá prover todas as informações para os filhos*/ }
-        {props.children}
+    return(
+        <GlobalContext.Provider value={data} >
+            {props.children}
         </GlobalContext.Provider>
     )
+
+
+
+
 }

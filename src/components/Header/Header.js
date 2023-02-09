@@ -1,47 +1,47 @@
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { goToHomePage, goToPokedexPage } from "../../routes/coordinator";
-import { Container } from "./Header.styled";
+import { Container } from "./styled";
+import { handlePokemonsListPage, handlePokedexPage } from "../../Router/cordinator";
 
-function Header() {
-  // hook para saber nosso path atual
-  const location = useLocation();
+export default function Header () {
 
-  // hook para redirecionar
-  const navigate = useNavigate();
+    const location = useLocation();
 
-  const renderHeader = () => {
-    switch (location.pathname) {
-      case "/":
-        return (
-          <>
-            <button onClick={() => goToPokedexPage(navigate)}>
-              Ver pokedex
-            </button>
-            <span>Lista de pokemons</span>
-          </>
-        );
-      case "/pokedex":
-        return (
-          <>
-            <button onClick={() => goToHomePage(navigate)}>
-              Ver lista de pokemons
-            </button>
-            <span>Pokedex</span>
-          </>
-        );
-      default:
-        return (
-          <>
-            <button onClick={() => goToHomePage(navigate)}>
-              Voltar para página inicial
-            </button>
-            <span>Página inexistente</span>
-          </>
-        );
+    const navigate = useNavigate()
+
+    const renderHeader = () => {
+        switch(location.pathname) {
+            case "/":
+                return(
+                    <>
+                    <span>Lista de pokemons</span>
+                    <button onClick={() => handlePokedexPage(navigate)}>Ver pokedex</button>
+                    </>
+                );
+            
+            case "/pokedex":
+                return(
+                    <>
+                    <span>Pokedex</span>
+                    <button onClick={() => handlePokemonsListPage(navigate)}>Ver lista de pokemons</button>
+                    </>
+                );
+
+            
+            
+            default:
+                return(
+                    <>
+                    <span>Página inexistente</span>
+                    <button onClick={() => handlePokemonsListPage(navigate)}>Voltar à página inicial</button>
+                    </>
+                );
+        }
     }
-  };
 
-  return <Container>{renderHeader()}</Container>;
+    return (
+        <Container>
+            {renderHeader()}
+        </Container>
+    )
 }
-
-export default Header;
