@@ -1,14 +1,16 @@
-import axios from "axios";
-import React, { useState, useEffect, useContext } from "react";
+
+import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import usePokemon from "../../hooks/usePokemon";
 import { handleDetailPage } from "../../Router/cordinator";
-import { Container } from "./styled";
+import { getTypes } from "../../utils/ReturnPokemonType";
+
+import { CatchButton, Container, Pokeball, Pokemon, PokemonName, PokemonNumber, PokemonType, TypesContainer } from "./styled";
 
 export default function PokemonCard (props) {
 
-const {pokemonUrl, addToPokedex, removeFromPokedex} = props
+const {pokemonUrl, cardColor, addToPokedex, removeFromPokedex} = props
 
 const location = useLocation()    
 
@@ -17,31 +19,48 @@ const navigate = useNavigate()
 const context = useContext(GlobalContext)
 
 
-const {pokemon} = usePokemon(pokemonUrl)
+const {pokemon} = usePokemon(pokemonUrl) //state:pokemon recebido da API, que está no hook;
 
     return (
 
-      <Container>
-      <img src={pokemon.sprites.default} alt={pokemon.name} />
-      <p>{pokemon.name}</p>
-      <p>{pokemon.types.map((type) => {
-        return type
-      })}</p>
-      <div>
-        {location.pathname === "/" ? (
-          <button onClick={() => addToPokedex(pokemon)}>
-            Adicionar à Pokedex
-          </button>
-        ) : (
-          <button onClick={() => removeFromPokedex(pokemon)}>
-            Remover da Pokedex
-          </button>
-        )}
+      <Container color= {cardColor}>
 
-        <button onClick={() => handleDetailPage(navigate, pokemon)}>
+        <div>
+      
+      <PokemonNumber>#{pokemon.id}</PokemonNumber>
+      <PokemonName>{pokemon.name}</PokemonName>
+      <TypesContainer>
+      {pokemon.types.map((type) => {
+        return (
+          <PokemonType key = {type} src = {getTypes(type) } alt = "" />
+        )
+      })}
+      </TypesContainer>
+
+      <button onClick={() => handleDetailPage(navigate, {state:pokemon})}> 
           Ver detalhes
         </button>
+
       </div>
+
+      <div>
+
+      <Pokemon src={pokemon.sprites.default} alt={pokemon.name} />
+
+        {location.pathname === "/" ? (
+          <CatchButton onClick={() => addToPokedex(pokemonUrl)}>
+            Adicionar à Pokedex
+          </CatchButton>
+        ) : (
+          <CatchButton onClick={() => removeFromPokedex(pokemon)}>
+            Remover da Pokedex
+          </CatchButton>
+        )}
+        
+      </div>
+
+          <Pokeball src = "" alt = "pokeball" />
+
     </Container>
     )
 }

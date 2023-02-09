@@ -1,10 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import { useContext } from "react";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import Header from "../../components/Header/Header";
 import { Container } from "./styled";
+import { getColors } from "../../utils/ReturnCardColor";
 
 function PokemonsListPage (props) {
 
@@ -17,7 +17,7 @@ function PokemonsListPage (props) {
     pokeList.filter(
       (pokemonInList) =>
         !pokedex.find(
-          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+          (pokemonInPokedex) => pokemonInList.url === pokemonInPokedex
         )
     );
 
@@ -34,6 +34,7 @@ function PokemonsListPage (props) {
                         key={pokemon.url}
                         pokemonUrl={pokemon.url}
                         addToPokedex={addToPokedex}
+                        cardColor={getColors(pokemon.types)}
                         />
                     )
                 })}

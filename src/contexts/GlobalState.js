@@ -28,7 +28,7 @@ export const GlobalState = (props) => {
 
     const addToPokedex = (pokemonToAdd) => {
         const isAlreadyOnPokedex = pokedex.find(
-            (pokemonInPokedex) => pokemonInPokedex.name === pokemonToAdd.name
+            (pokemonInPokedex) => pokemonInPokedex === pokemonToAdd
         );
 
         if (!isAlreadyOnPokedex) {
@@ -40,7 +40,7 @@ export const GlobalState = (props) => {
 
     const removeFromPokedex = (pokemonToRemove) => {
         const newPokedex = pokedex.filter(
-          (pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name
+          (pokemonInPokedex) => pokemonInPokedex !== pokemonToRemove
         );
     
         setPokedex(newPokedex);

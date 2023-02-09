@@ -6,7 +6,8 @@ export function handlePokedexPage (navigate) {
     navigate("/pokedex")
 }
 
-export function handleDetailPage (navigate, pokemonName) {
-    navigate("/details")
+export function handleDetailPage (navigate, response = "") {
+    navigate("/details",response)
+
 }
 
