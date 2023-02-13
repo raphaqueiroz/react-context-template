@@ -15,7 +15,7 @@ export const Container = styled.header`
     width:10vw;
     height:40px;
     position: absolute;
-    right: 0;
+    left: 0;
     border-width:1px;
     color:#ffffff;
     border-color:#74b807;

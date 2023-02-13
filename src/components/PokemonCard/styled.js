@@ -43,6 +43,8 @@ export const Pokeball = styled.img`
   position: absolute;
   top: 0;
   right: 0;
+  height: 25vh;
+  width: 15vw;
 `;
 
 export const CatchButton = styled.button`
