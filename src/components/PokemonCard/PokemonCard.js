@@ -7,7 +7,7 @@ import usePokemon from "../../hooks/usePokemon";
 import { handleDetailPage } from "../../Router/cordinator";
 import { getColors } from "../../utils/ReturnCardColor";
 import { getTypes } from "../../utils/ReturnPokemonType";
-import { CatchButton, Container, DetailButton, Pokeball, Pokemon, PokemonName, PokemonNumber, PokemonType, TypesContainer } from "./styled";
+import { CatchButton, Container, DetailButton, InfoContainer, Pokeball, Pokemon, PokemonName, PokemonNumber, PokemonType, TypesContainer } from "./styled";
 
 export default function PokemonCard (props) {
 
@@ -26,7 +26,7 @@ const {pokemon} = usePokemon(pokemonUrl) //state:pokemon recebido da API, que es
 
       <Container color= {getColors(pokemon.types[0])}>
 
-        <div>
+        <InfoContainer>
       
       <PokemonNumber>#{pokemon.id}</PokemonNumber>
       <PokemonName>{pokemon.name}</PokemonName>
@@ -42,7 +42,7 @@ const {pokemon} = usePokemon(pokemonUrl) //state:pokemon recebido da API, que es
           Ver detalhes
         </DetailButton>
 
-      </div>
+      </InfoContainer>
 
       <div>
 

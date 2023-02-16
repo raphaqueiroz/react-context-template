@@ -39,14 +39,18 @@ border-radius: 8px;
 justify-items: center;
 margin-top: 10px; 
 margin-bottom: 10px;
+margin-right: 15px
 `
 
 export const SectionMoves = styled.div`
 
 display: grid;
 justify-items: center;
+align-items: center;
 background: #FFFFFF;
 border-radius: 8px;
+width: 20vw;
+height: 50vh;
 margin-top: 10px;
 margin-bottom: 10px;
 
@@ -55,6 +59,8 @@ p{
     margin: 10px;
     border-radius: 8px;
     text-align: center;
+    z-index: 1;
+
 }
 `
 
@@ -65,6 +71,7 @@ export const PokemonType = styled.img`
   overflow: hidden;
   border: 1px dashed #ffffff;
   margin-right: 8px;
+
 `;
 
 export const PokemonProfilePic = styled.img`
@@ -76,16 +83,29 @@ left: 980px;
 top: 0px;
 `
 
+export const IdMovesContainer = styled.div`
+z-index: 1;
+`
+
 export const Div = styled.div`
 
 display: grid;
 grid-template-rows: 1fr, 5fr;
-
-
-
-div{
-  display: grid;
+width: 20vw;
+height: 29vh;
+margin-top: 10px;
 justify-items: end;
 
-}
+
+
 `
+
+export const Pokeball = styled.img`
+position: absolute;
+width: 500.31px;
+height: 500.31px;
+left: 750.66px;
+top: 150px;
+opacity: 0.60;
+transform: rotate(35deg);
+`;

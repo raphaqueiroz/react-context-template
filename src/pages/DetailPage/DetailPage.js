@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header"
 import { useLocation, useNavigate } from "react-router-dom";
 import { handlePokemonsListPage } from "../../Router/cordinator";
 import { getTypes } from "../../utils/ReturnPokemonType";
-import { Container, Div, Img, ImgContainer, PokemonProfilePic, PokemonType, Section, SectionMoves } from "./styled";
+import { Container, Div, IdMovesContainer, Img, ImgContainer, Pokeball, PokemonProfilePic, PokemonType, Section, SectionMoves } from "./styled";
 import { getColors } from "../../utils/ReturnCardColor";
 
 function DetailPage () {
@@ -36,7 +36,6 @@ function DetailPage () {
                 <Img src = {sprites.backDefault} alt = {name} />
             </ImgContainer>
 
-            
             <Section>
 
                 <h2>Base Stats</h2>
@@ -49,16 +48,17 @@ function DetailPage () {
                 <p>{stats[5].name} : {stats[5].base_stat}</p>
             </Section>
 
+            <IdMovesContainer>
             <Div>
-                <div>
-                    <p>#{id}</p>
+                
+                    <h3>#{id}</h3>
                     <h2>{name}</h2>
                     <p>{types.map((type) => {
                         return (
                             <PokemonType key = {type} src = {getTypes(type)} alt = ""/>
                         )
                     })}</p>
-                </div>
+                </Div>
 
                 <SectionMoves>
                 <p>{moves.map((move) => {
@@ -67,11 +67,13 @@ function DetailPage () {
                     )
                 })}</p>
                 </SectionMoves>
-            </Div>
+                </IdMovesContainer>
+
+        <Pokeball src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/16c93e3b-ce11-48da-a4a8-ad1dca9081ec/dmh4ei-666ff8b3-1e52-4318-93a8-50fa1f33ab6c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE2YzkzZTNiLWNlMTEtNDhkYS1hNGE4LWFkMWRjYTkwODFlY1wvZG1oNGVpLTY2NmZmOGIzLTFlNTItNDMxOC05M2E4LTUwZmExZjMzYWI2Yy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.Ktgv0vpDRHcZ4SHaIFm-Zqz_gyM92dOk7Z3jFxi-4a0" alt = "pokeball" />
+
 
             <div>
             <PokemonProfilePic src = {sprites.default} alt = {name} />
-
             </div>
 
         </Container>

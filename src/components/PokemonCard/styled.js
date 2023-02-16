@@ -43,8 +43,9 @@ export const Pokeball = styled.img`
   position: absolute;
   top: 0;
   right: 0;
-  height: 25vh;
+  height: 30vh;
   width: 15vw;
+  opacity: 0.60;
 `;
 
 export const CatchButton = styled.button`
@@ -90,5 +91,12 @@ export const Pokemon = styled.img`
   position: absolute;
   top: -60px;
   right: 0;
-  z-index: 2;
+  z-index: 1;
 `;
+
+export const InfoContainer = styled.div`
+
+
+  z-index: 1;
+
+`
