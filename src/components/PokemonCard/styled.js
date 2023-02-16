@@ -8,7 +8,7 @@ export const Container = styled.div`
   border-radius: 12px;
   display: flex;
   position: relative;
-  margin: 50px;
+  margin: 35px 10px;
   color: #ffffff;
 `;
 
@@ -65,6 +65,24 @@ export const CatchButton = styled.button`
   z-index: 2;
   color: #000;
 `;
+
+export const DetailButton = styled.button`
+
+box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+`
 
 export const Pokemon = styled.img`
   width: 193px;

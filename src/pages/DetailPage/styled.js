@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+
+
 export const Container = styled.div`
 
     display: grid;
     border-radius: 8px;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 8px;
-    background-color: #729F92
+    background-color: ${(props) => props.color}
 
 `
 
@@ -16,7 +18,8 @@ display: grid;
 grid-template-rows: repeat(2, 1fr);
 grid-gap: 5px;
 justify-items: center;
-margin-top: 5px;
+margin-top: 10px;
+margin-bottom: 10px;
 `
 
 export const Img = styled.img`
@@ -34,7 +37,8 @@ display: grid;
 background: #FFFFFF;
 border-radius: 8px;
 justify-items: center;
-margin-top: 5px; 
+margin-top: 10px; 
+margin-bottom: 10px;
 `
 
 export const SectionMoves = styled.div`
@@ -43,7 +47,8 @@ display: grid;
 justify-items: center;
 background: #FFFFFF;
 border-radius: 8px;
-margin-top: 5px;
+margin-top: 10px;
+margin-bottom: 10px;
 
 p{
     background-color: #ECECEC;
@@ -75,4 +80,12 @@ export const Div = styled.div`
 
 display: grid;
 grid-template-rows: 1fr, 5fr;
+
+
+
+div{
+  display: grid;
+justify-items: end;
+
+}
 `

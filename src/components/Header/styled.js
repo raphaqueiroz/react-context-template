@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   position: relative;
-  height: 70px;
+  height: 85px;
   font-size: 24px;
   font-weight: 700;
 
@@ -28,5 +28,10 @@ export const Container = styled.header`
     text-shadow:inset 0px 1px 0px #528009;
     background:linear-gradient(#89c403, #77a809);
     font-size:15px;
+  }
+
+  img {
+    width: 15vw;
+    height: 15vh;
   }
 `;

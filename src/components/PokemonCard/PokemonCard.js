@@ -7,7 +7,7 @@ import usePokemon from "../../hooks/usePokemon";
 import { handleDetailPage } from "../../Router/cordinator";
 import { getColors } from "../../utils/ReturnCardColor";
 import { getTypes } from "../../utils/ReturnPokemonType";
-import { CatchButton, Container, Pokeball, Pokemon, PokemonName, PokemonNumber, PokemonType, TypesContainer } from "./styled";
+import { CatchButton, Container, DetailButton, Pokeball, Pokemon, PokemonName, PokemonNumber, PokemonType, TypesContainer } from "./styled";
 
 export default function PokemonCard (props) {
 
@@ -38,9 +38,9 @@ const {pokemon} = usePokemon(pokemonUrl) //state:pokemon recebido da API, que es
       })}
       </TypesContainer>
 
-      <button onClick={() => handleDetailPage(navigate, {state:pokemon})}> 
+      <DetailButton onClick={() => handleDetailPage(navigate, {state:pokemon})}> 
           Ver detalhes
-        </button>
+        </DetailButton>
 
       </div>
 

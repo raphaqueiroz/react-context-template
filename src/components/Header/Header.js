@@ -14,15 +14,16 @@ export default function Header () {
             case "/":
                 return(
                     <>
-                    <span>Lista de pokemons</span>
+                    <img src = "https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png" alt= "pokemon logo" />
                     <button onClick={() => handlePokedexPage(navigate)}>Ver pokedex</button>
+                    
                     </>
                 );
             
             case "/pokedex":
                 return(
                     <>
-                    <span>Pokedex</span>
+                    <img src = "https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png" alt= "pokemon logo" />
                     <button onClick={() => handlePokemonsListPage(navigate)}>Ver lista de pokemons</button>
                     </>
                 );
@@ -32,7 +33,7 @@ export default function Header () {
             default:
                 return(
                     <>
-                    <span>Página inexistente</span>
+                    <img src = "https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png" alt= "pokemon logo" />
                     <button onClick={() => handlePokemonsListPage(navigate)}>Voltar à página inicial</button>
                     </>
                 );

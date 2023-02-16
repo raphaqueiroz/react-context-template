@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { handlePokemonsListPage } from "../../Router/cordinator";
 import { getTypes } from "../../utils/ReturnPokemonType";
 import { Container, Div, Img, ImgContainer, PokemonProfilePic, PokemonType, Section, SectionMoves } from "./styled";
+import { getColors } from "../../utils/ReturnCardColor";
 
 function DetailPage () {
 
@@ -25,8 +26,10 @@ function DetailPage () {
     return (
         <>
         <Header/>
+
+        <h2>Detalhes</h2>
         
-        <Container>
+        <Container color = {getColors(types[0])}>
 
             <ImgContainer>
                 <Img src = {sprites.frontDefault} alt = {name}/>
@@ -71,8 +74,6 @@ function DetailPage () {
 
             </div>
 
-
-            <button onClick={()=> handlePokemonsListPage(navigate)}>Todos os pokemons</button>
         </Container>
         </>
     )
