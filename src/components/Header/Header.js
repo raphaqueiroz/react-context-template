@@ -25,6 +25,8 @@ export default function Header () {
                     <>
                     <img src = "https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png" alt= "pokemon logo" />
                     <button onClick={() => handlePokemonsListPage(navigate)}>Ver lista de pokemons</button>
+
+                    
                     </>
                 );
 

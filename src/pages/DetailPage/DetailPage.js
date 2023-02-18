@@ -61,6 +61,7 @@ function DetailPage () {
                 </Div>
 
                 <SectionMoves>
+                    <h2>Moves</h2>
                 <p>{moves.map((move) => {
                     return (
                         <p>{move}</p>

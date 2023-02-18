@@ -2,6 +2,9 @@ import { GlobalContext } from "./GlobalContext"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../constants/url";
+import swal from 'sweetalert';
+
+
 
 export const GlobalState = (props) => {
 
@@ -36,6 +39,8 @@ export const GlobalState = (props) => {
             const newPokedex = [...pokedex, pokemonToAdd];
             setPokedex(newPokedex);
         }
+
+        swal("Gotcha!", "Pokemon capturado!", "success");
     }
 
     const removeFromPokedex = (pokemonToRemove) => {
