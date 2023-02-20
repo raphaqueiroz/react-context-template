@@ -10,6 +10,11 @@ export const Container = styled.div`
   position: relative;
   margin: 35px 10px;
   color: #ffffff;
+
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  
+    width: 150px;
+  }
 `;
 
 export const PokemonNumber = styled.p`
@@ -17,6 +22,7 @@ export const PokemonNumber = styled.p`
   font-size: 16px;
   font-weight: 600;
   text-align: left;
+  
 `;
 
 export const PokemonName = styled.h1`
@@ -46,6 +52,13 @@ export const Pokeball = styled.img`
   height: 30vh;
   width: 15vw;
   opacity: 0.60;
+
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  
+    height: 37vh;
+    width: 40vw;
+
+  }
 `;
 
 export const CatchButton = styled.button`
@@ -90,8 +103,17 @@ export const Pokemon = styled.img`
   height: 193px;
   position: absolute;
   top: -60px;
-  right: 0;
+  right: -10;
   z-index: 1;
+
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: -50px;
+    right: 0;
+  }
 `;
 
 export const InfoContainer = styled.div`

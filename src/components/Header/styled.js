@@ -28,10 +28,22 @@ export const Container = styled.header`
     text-shadow:inset 0px 1px 0px #528009;
     background:linear-gradient(#89c403, #77a809);
     font-size:15px;
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  
+      position: absolute;
+      left: -20;
+      width: 15vw;
+    }
   }
 
   img {
     width: 15vw;
     height: 15vh;
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  
+      height: 10vh;
+    }
   }
 `;
